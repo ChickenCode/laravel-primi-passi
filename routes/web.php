@@ -13,6 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/contatti', function () {
+    return view("contacts", [
+        "name" => "Tommaso",
+        "surname" => "Cavaletti",
+        "email" => "cavalettitommaso@gmail.com",
+        "adress" => "via Supersegreta, 123"
+    ]);
+})->name("contacts");
+
+Route::get('/segreti', function () {
+    return view("secretinfo", [
+        "secret1" => "Ho installato una nuova versione di php manualmente",
+        "secret2" => "Ho esteso la versione di default con IGN per ignorarla",
+        "secret3" => "Ho selezionato manualmente dove installare composer all'interno della nuova versione di php",
+        "secret4" => "Ho aggiunto la nuova versione di php al path manualmente"
+    ]);
+})->name("secrets");
